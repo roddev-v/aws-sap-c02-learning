@@ -8,7 +8,7 @@ export class HelloWorldCommand extends AbstractCommand<
   async Run(): Promise<{ message: string }> {
     await sleep();
     return {
-      message: "Hello world",
+      message: "Hello world " + Math.round(Math.random() * 1000),
     };
   }
 }

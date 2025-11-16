@@ -75,3 +75,47 @@ resource "aws_api_gateway_stage" "hello_stage" {
   deployment_id = aws_api_gateway_deployment.hello_deploy.id
   stage_name    = "prod"
 }
+
+resource "aws_cloudfront_distribution" "cached_api" {
+  enabled         = true
+  is_ipv6_enabled = true
+  comment         = "Cached CloudFront distribution for API"
+
+  price_class = "PriceClass_100"
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
+
+  # SSL certificate
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
+  default_cache_behavior {
+    target_origin_id       = "apigateway"
+    viewer_protocol_policy = "redirect-to-https"
+    allowed_methods        = ["GET", "HEAD", "OPTIONS"]
+    cached_methods         = ["GET", "HEAD"]
+    compress               = true
+
+    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+
+    origin_request_policy_id = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
+  }
+
+  origin {
+    origin_id   = "apigateway"
+    domain_name = replace(aws_api_gateway_stage.hello_stage.invoke_url, "/^https?://([^/]*).*/", "$1")
+    origin_path = "/${aws_api_gateway_stage.hello_stage.stage_name}" # Add this line
+
+    custom_origin_config {
+      http_port              = 80
+      https_port             = 443
+      origin_protocol_policy = "https-only"
+      origin_ssl_protocols   = ["TLSv1.2"]
+    }
+  }
+}
