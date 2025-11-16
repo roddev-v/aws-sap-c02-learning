@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "typecheck": "tsc --noEmit",
+    "build": "node src/build.ts",
+    "prebuild": "npm run typecheck"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,8 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/aws-lambda": "8.10.158",
+    "@types/node": "24.10.1",
+    "esbuild": "0.27.0",
     "typescript": "5.9.3"
   },
   "dependencies": {

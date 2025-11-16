@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types", "./src/types"],
+    "types": ["node"],
     "target": "es2015",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "outDir": "build"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
