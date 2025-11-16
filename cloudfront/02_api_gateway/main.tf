@@ -19,4 +19,5 @@ resource "aws_lambda_function" "basic_json_lambda" {
   role          = aws_iam_role.basic_json_lambda_role.arn
   runtime       = "nodejs20.x"
   handler       = "index.handle"
+  filename      = "${path.module}/api/dist/helloWorld.zip"
 }
