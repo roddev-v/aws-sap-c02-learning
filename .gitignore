@@ -40,3 +40,5 @@ terraform.rc
 .vscode/
 .idea/
 *.iml
+
+node_modules
