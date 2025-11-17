@@ -1,12 +1,12 @@
 # CloudFront Exam Practice Topics
 
-This list contains bite-sized hands-on exercises for AWS Solutions Architect – Associate / Professional exam preparation using CloudFront.
+This list contains bite-sized hands-on exercises for AWS Solutions Architect – Professional exam preparation using CloudFront.
 
 ## 1. Origins & Origin Access
-- S3 as origin (public vs private)
-- API Gateway as origin
-- Custom origin (EC2/ALB)
-- Origin Access Identity (OAI) vs Origin Access Control (OAC)
+- [x] S3 as origin - static website distribution
+- [x] API Gateway + Lambda as origin
+- [ ] Custom origin (EC2/ALB)
+- [ ] Origin Access Identity (OAI) vs Origin Access Control (OAC)
 
 ## 2. Behaviors & Path Patterns
 - Multiple cache behaviors per distribution
