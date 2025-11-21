@@ -9,9 +9,9 @@ This list contains bite-sized hands-on exercises for AWS Solutions Architect –
 - [ ] Origin Access Identity (OAI) vs Origin Access Control (OAC)
 
 ## 2. Behaviors & Path Patterns
-- Multiple cache behaviors per distribution
-- Path patterns (e.g., `/static/*`, `/api/*`)
-- Default behavior vs specific behaviors
+- [x] Multiple cache behaviors per distribution
+- [x] Path patterns (e.g., `/static/*`, `/api/*`)
+- [x] Default behavior vs specific behaviors
 - Viewer protocol policy (HTTP → HTTPS)
 
 ## 3. Caching & TTL
