@@ -41,8 +41,8 @@ This list contains bite-sized hands-on exercises for AWS Solutions Architect –
 - Modifying headers, redirects, authentication at edge
 
 ## 8. Integration Patterns
-- CloudFront + S3 (static site)
-- CloudFront + API Gateway (serverless backend)
+[x] CloudFront + S3 (static site)
+[x] CloudFront + API Gateway (serverless backend)
 - Mixed distributions (static + dynamic paths)
 - Path-based TTL and caching
 
