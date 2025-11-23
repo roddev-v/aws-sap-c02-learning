@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "baseUrl": "./",
+    "lib": ["ES2015"],
+    "sourceMap": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "typeRoots": ["./types"],
+  },
+  "include": ["src/**/*", "types/**/*"],
+  "exclude": ["node_modules"]
+}

@@ -1,5 +1,6 @@
 resource "aws_s3_bucket" "assets_bucket" {
   bucket = "assets-sap-co2-practice"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "block_public_assets" {
