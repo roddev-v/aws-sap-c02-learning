@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "assets_bucket" {
-  bucket = "assets"
+  bucket = "assets-sap-co2-practice"
 }
 
 resource "aws_s3_bucket_public_access_block" "block_public_assets" {
@@ -37,6 +37,11 @@ resource "aws_cloudfront_public_key" "signed_url_public_key" {
   encoded_key = file("${path.module}/keys/public_key.pem")
 }
 
+resource "aws_cloudfront_key_group" "signer_url_key_group" {
+  name = "signed-url-key-hroup"
+  items   = [aws_cloudfront_public_key.signed_url_public_key.id]
+}
+
 resource "aws_cloudfront_distribution" "assets_distribution" {
   enabled     = true
   price_class = "PriceClass_100"
@@ -51,6 +56,7 @@ resource "aws_cloudfront_distribution" "assets_distribution" {
     cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
 
     origin_request_policy_id = "88a5eaf4-2fd4-4709-b370-b4c650ea3fcf"
+    trusted_key_groups = [aws_cloudfront_key_group.signer_url_key_group.id]
   }
   origin {
     origin_id                = "s3-assets-origin"
