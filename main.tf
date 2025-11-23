@@ -10,6 +10,10 @@ module "cloudfront_03_api_gateway_dynamic_cache" {
   source = "./cloudfront/03_api_gateway_dynamic_cache"
 }
 
+module "cloudfront_04_signed_urls" {
+  source = "./cloudfront/04_signed_urls"
+}
+
 module "cloudfront_05_multi_origin_distribution" {
   source = "./cloudfront/05_multi_origin_distribution"
 }
