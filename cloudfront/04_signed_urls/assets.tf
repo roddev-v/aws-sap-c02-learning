@@ -32,6 +32,11 @@ resource "aws_s3_bucket_policy" "s3_bucket_policy" {
   })
 }
 
+resource "aws_cloudfront_public_key" "signed_url_public_key" {
+  name        = "signer-url-public-key"
+  encoded_key = file("${path.module}/keys/public_key.pem")
+}
+
 resource "aws_cloudfront_distribution" "assets_distribution" {
   enabled     = true
   price_class = "PriceClass_100"
@@ -52,7 +57,7 @@ resource "aws_cloudfront_distribution" "assets_distribution" {
     domain_name              = aws_s3_bucket.assets_bucket.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.s3_oac.id
   }
-  
+
   restrictions {
     geo_restriction {
       restriction_type = "none"
