@@ -3,7 +3,7 @@
 This list contains bite-sized hands-on exercises for AWS Solutions Architect – Professional exam preparation using IAM and Terraform.
 
 ## 1. IAM Roles & Trust Policies
-- [ ] Lambda execution role with S3 and DynamoDB access
+- [*] Lambda execution role with S3 and DynamoDB access
 - [ ] EC2 instance profile with SSM and CloudWatch permissions
 - [ ] ECS task role and task execution role
 - [ ] Cross-account role for resource access
