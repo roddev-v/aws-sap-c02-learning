@@ -1,3 +1,4 @@
+# CloudFront
 module "cloudfront_01_static_s3_site" {
   source = "./cloudfront/01_static_s3_site"
 }
@@ -16,4 +17,9 @@ module "cloudfront_04_signed_urls" {
 
 module "cloudfront_05_multi_origin_distribution" {
   source = "./cloudfront/05_multi_origin_distribution"
+}
+
+# IAM
+module "iam_01_lambda_execution_role" {
+  source = "./iam/01_lambda_execution_role"
 }
