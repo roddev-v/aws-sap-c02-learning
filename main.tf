@@ -23,3 +23,7 @@ module "cloudfront_05_multi_origin_distribution" {
 module "iam_01_lambda_execution_role" {
   source = "./iam/01_lambda_execution_role"
 }
+
+module "iam_03_roles_groups" {
+  source = "./iam/03_roles_groups"
+}
